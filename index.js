@@ -11,7 +11,7 @@ const corsOptions = {
   origin: 'https://todo-phi-jade.vercel.app',
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 const url= "mongodb+srv://admin_aastha:Test123@cluster0.edhnxlr.mongodb.net/todo"
