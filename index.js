@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const Todo= require("./todo")
 const cors= require("cors")
 const dayjs=require("dayjs")
-const { DateTime } = require('luxon');
+// const { DateTime } = require('luxon');
 const corsOptions = {
   origin: 'https://todo-phi-jade.vercel.app',
 };
@@ -56,22 +56,22 @@ router.post("/todo", async (req, res) => {
 
 
 
-  router.get("/todo", async (req, res) => {
-    try {
-      const today = DateTime.local().setZone('Asia/Kolkata').startOf('day');
+//   router.get("/todo", async (req, res) => {
+//     try {
+//       const today = DateTime.local().setZone('Asia/Kolkata').startOf('day');
   
-      const todos = await Todo.find({
-        date: {
-          $gte: today.toJSDate(),
-          $lt: today.plus({ days: 1 }).toJSDate()
-        }
-      });
+//       const todos = await Todo.find({
+//         date: {
+//           $gte: today.toJSDate(),
+//           $lt: today.plus({ days: 1 }).toJSDate()
+//         }
+//       });
   
-      res.send(todos);
-    } catch (err) {
-      res.send(err);
-    }
-  });
+//       res.send(todos);
+//     } catch (err) {
+//       res.send(err);
+//     }
+//   });
 
 router.get("/todo/user", async (req, res) => {
   try {
