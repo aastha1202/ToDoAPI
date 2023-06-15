@@ -15,7 +15,7 @@ app.use(cors({
   origin: '*',
   methods: 'GET, POST, PUT, DELETE',
 }));
-
+app.use(bodyParser.json());
 
 const url= "mongodb+srv://admin_aastha:Test123@cluster0.edhnxlr.mongodb.net/todo"
 // mongodb+srv://admin_aastha:<password>@cluster0.edhnxlr.mongodb.net/
