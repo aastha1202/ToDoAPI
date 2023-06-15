@@ -7,10 +7,11 @@ const Todo= require("./todo")
 const cors= require("cors")
 const dayjs=require("dayjs")
 
-app.use(cors({
-    allowedHeaders:['Content-Type']
-}))
-app.use(bodyParser.json())
+const corsOptions = {
+  origin: 'https://todo-phi-jade.vercel.app',
+};
+
+app.use(cors(corsOptions));
 
 
 const url= "mongodb+srv://admin_aastha:Test123@cluster0.edhnxlr.mongodb.net/todo"
