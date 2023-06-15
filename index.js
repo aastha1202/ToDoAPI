@@ -11,7 +11,10 @@ const corsOptions = {
   origin: 'https://todo-phi-jade.vercel.app',
 };
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: 'GET, POST, PUT, DELETE',
+}));
 
 
 const url= "mongodb+srv://admin_aastha:Test123@cluster0.edhnxlr.mongodb.net/todo"
@@ -85,7 +88,10 @@ router.get("/todo/user", async (req, res) => {
 app.use("/", router);
 
 
-const PORT = 9000; // Choose a port number
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
